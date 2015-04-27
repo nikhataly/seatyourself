@@ -16,9 +16,19 @@ end
 categories = Category.all
 
 10.times do
-  Restaurant.create(name: Faker::Company.name, address: Faker::Address.street_address, phone: Faker::PhoneNumber.phone_number)
+  Restaurant.create(name: Faker::Company.name, opening: rand(9..12), closing: rand(15..23), address: Faker::Address.street_address, phone: Faker::PhoneNumber.phone_number, description: Faker::Hacker.say_something_smart, category_id: rand(1..3))
+end
 
+30.times do
+   User.create(name: Faker::Name.name, email: Faker::Internet.email, password: "abcd")
+end
 
+users = User.all
+restaurants = Restaurant.all
+
+30.times do
+  Reservation.create(time: rand(9..17), date: Date.today + rand(0..3).days, restaurant: restaurants.sample, user: User.all.sample)
+end
 
 # [
 #   "Dentist",

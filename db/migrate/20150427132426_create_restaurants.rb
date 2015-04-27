@@ -6,6 +6,8 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :phone
       t.text :description
       t.integer :category_id
+      t.integer :opening
+      t.integer :closing
 
       t.timestamps null: false
     end

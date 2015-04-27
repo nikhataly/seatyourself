@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 20150427132652) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.datetime "start_time"
+    t.date     "date"
+    t.integer  "time"
     t.integer  "user_id"
     t.integer  "restaurant_id"
     t.datetime "created_at",    null: false
@@ -33,6 +34,8 @@ ActiveRecord::Schema.define(version: 20150427132652) do
     t.string   "phone"
     t.text     "description"
     t.integer  "category_id"
+    t.integer  "opening"
+    t.integer  "closing"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
